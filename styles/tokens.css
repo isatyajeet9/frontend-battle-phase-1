@@ -1,0 +1,36 @@
+@theme inline {
+  --font-sans: "Inter Local", "Inter", "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono Local", "JetBrains Mono", "SFMono-Regular", monospace;
+
+  --color-surface: #f1f6f4;
+  --color-surface-strong: #d9e8e2;
+  --color-ink: #172b36;
+  --color-ink-muted: #44616b;
+  --color-panel: #ffffff;
+  --color-panel-strong: #eff6f2;
+  --color-line: rgba(23, 43, 54, 0.12);
+  --color-line-strong: rgba(23, 43, 54, 0.18);
+  --color-brand: #114c5a;
+  --color-brand-strong: #0d3a45;
+  --color-accent: #ffc801;
+  --color-accent-strong: #ff9932;
+  --shadow-soft: 0 18px 48px rgba(17, 76, 90, 0.08);
+  --shadow-lift: 0 24px 72px rgba(23, 43, 54, 0.14);
+  --shadow-dark: 0 30px 80px rgba(8, 22, 28, 0.24);
+  --radius-card: 20px;
+  --radius-button: 14px;
+  --radius-pricing: 24px;
+  --container-width: 1280px;
+}
+
+@font-face {
+  font-family: "Inter Local";
+  src: local("Inter");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono Local";
+  src: local("JetBrains Mono");
+  font-display: swap;
+}

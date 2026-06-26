@@ -1,0 +1,180 @@
+/* ─── Layout utilities ─────────────────────────────────────── */
+
+.page-shell {
+  position: relative;
+  overflow-x: clip;
+  background-color: #F8F9FA;
+}
+
+.section-frame {
+  padding-block: 4rem;
+}
+
+@media (min-width: 768px) {
+  .section-frame {
+    padding-block: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-frame {
+    padding-block: 7.5rem;
+  }
+}
+
+.shell-container {
+  width: min(100% - 2.5rem, 1280px);
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .shell-container {
+    width: min(100% - 3rem, 1280px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .shell-container {
+    width: min(100% - 4rem, 1280px);
+  }
+}
+
+/* ─── Surface styles ──────────────────────────────────────── */
+
+.surface-card {
+  border: 1px solid var(--color-line);
+  background: color-mix(in srgb, white 72%, var(--color-surface) 28%);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(16px);
+}
+
+.surface-dark {
+  border: 1px solid rgba(241, 246, 244, 0.1);
+  background-color: var(--color-ink);
+  background-image: linear-gradient(180deg, rgba(17, 76, 90, 0.96), rgba(23, 43, 54, 0.98));
+  box-shadow: var(--shadow-dark);
+}
+
+.section-anchor {
+  scroll-margin-top: 6.5rem;
+}
+
+/* ─── Focus ring ────────────────────────────────────────── */
+
+.focus-ring {
+  outline: none;
+}
+
+.focus-ring:focus-visible {
+  box-shadow: 0 0 0 3px rgba(255, 200, 1, 0.55), 0 0 0 5px rgba(17, 76, 90, 0.18);
+}
+
+/* ─── Scroll-reveal animations ─────────────────────────── */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+.anim-fade-up {
+  opacity: 0;
+}
+
+.anim-fade-up.is-visible {
+  animation: fade-up 0.48s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.anim-fade-in {
+  opacity: 0;
+}
+
+.anim-fade-in.is-visible {
+  animation: fade-in 0.42s ease-out both;
+}
+
+.anim-scale-in {
+  opacity: 0;
+}
+
+.anim-scale-in.is-visible {
+  animation: scale-in 0.44s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Staggered children delays */
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 80ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 160ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 240ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 320ms; }
+
+/* ─── Pricing card highlight ring ──────────────────────── */
+
+.pricing-popular {
+  position: relative;
+}
+
+.pricing-popular::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: calc(var(--radius-pricing) + 2px);
+  background: linear-gradient(135deg, var(--color-brand), var(--color-accent));
+  z-index: -1;
+}
+
+/* ─── Shimmer accent ────────────────────────────────────── */
+
+@keyframes shimmer-x {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+.shimmer-line {
+  overflow: hidden;
+  position: relative;
+}
+
+.shimmer-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 20%,
+    rgba(255, 200, 1, 0.24) 50%,
+    transparent 80%
+  );
+  animation: shimmer-x 2.8s ease-in-out infinite;
+}
